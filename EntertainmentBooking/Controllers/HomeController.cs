@@ -1,30 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EntertainmentBooking.Models;
 
 namespace EntertainmentBooking.Controllers
 {
     public class HomeController : Controller
     {
+        public EntertainmentDbContext DbContext { get; set; }
+
+        public HomeController()
+        {
+            DbContext = new EntertainmentDbContext();
+        }
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Arrangements()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            var models = DbContext.arrangements.Include(b => b.bands).ToList();
+            return View(models);
         }
 
-        public ActionResult Contact()
+        public ActionResult Genres()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            var models = DbContext.genres.Include(b => b.bands).ToList();
+            return View(models);
         }
     }
 }

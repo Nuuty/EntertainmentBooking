@@ -8,6 +8,7 @@
         foreach (var arrangement in Model)
         {
             <h2><b>@arrangement.name</b>, @arrangement.area</h2>
+            <h2>Guests attending at this event: @arrangement.customers.Count</h2>
             foreach (var band in arrangement.bands)
             {
                 <h3>@band.name</h3>

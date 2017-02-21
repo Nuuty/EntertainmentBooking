@@ -7,11 +7,12 @@
     @{
         foreach (var arrangement in Model)
         {
-            <h1>@arrangement.name</h1>
+            <h2><b>@arrangement.name</b>, @arrangement.area</h2>
             foreach (var band in arrangement.bands)
             {
-                <h2>@band.name</h2>
+                <h3>@band.name</h3>
             }
+            <br/>
         }
     }
 </div>

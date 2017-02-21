@@ -6,11 +6,12 @@
     @{
         foreach (var genre in Model)
         {
-            <h1>@genre.name</h1>
+            <h2><b>@genre.name</b></h2>
             foreach (var band in genre.bands)
             {
-                <h2>@band.name</h2>
+                <h3>@band.name</h3>
             }
+            <br/>
         }
     }
 </div>
